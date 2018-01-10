@@ -9,4 +9,4 @@ $twig = new Twig_Environment($loader, [
 	'cache' => __DIR__ . "/views_c"
 ]);
 
-print $twig->render('index.twig', array('name' => 'Irwing Max'));
+print $twig->render('index.html', array('name' => 'Irwing Max'));
