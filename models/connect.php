@@ -1,29 +1,24 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "irwing";
-$dbname = "db_movies";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+Class Connect{
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected\n";
+	private $servername;
+	private $username;
+	private $password;
+	private $dbname;
 
+	function connectar(){
+		$this->servername =  "localhost";
+		$this->username   =  "root";
+		$this->password   =  "irwing";
+		$this->dbname     =  "db_movies";
 
-
-$sql = "SELECT movieID, Title, Director FROM tb_movies";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "movieID: " . $row["movieID"]. " - Title: " . $row["Title"]. " - Director " . $row["Director"]. "<br>";
-    }
-} else {
-    echo "0 results";
+		try{
+			$connection = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
+			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			echo "Conectado";
+		}catch(PDOException $e){
+			echo "Não Conectado: " . $e->getMessage();
+		}
+	}
 }
-$conn->close();
