@@ -1,25 +1,32 @@
-<?php  
-	namespace app\controllers;
-	require_once '/Applications/XAMPP/xamppfiles/htdocs/movies/vendor/autoload.php';
+<?php
+namespace Irwing\Movies\controllers;
 
-	Class RequestData{
-		private $titulo;
-		private $diretor;
-		private $sinopse;
-		private $arrData;
+use PDO;
+class RequestData
+{
+    private $titulo;
+    private $diretor;
+    private $sinopse;
+    private $arrData;
 
-		public function getRequest(){
+    public function getTitulo()
+    {
+        $requestTitulo = isset($_POST['titulo']) ? $_POST['titulo'] : '';
+        $this->titulo = PDO::quote($requestTitulo); //quote() para escapar a sequencia de caracteres
+        return $this->arrData;
+    }
 
-			$this->titulo = isset($_POST['titulo']) ? $_POST['titulo'] : '';
-			$this->diretor = isset($_POST['diretor']) ? $_POST['diretor'] : '';
-			$this->sinopse = isset($_POST['diretor']) ? $_POST['diretor'] : '';
+    public function getDiretor()
+    {
+        $requestDiretor = isset($_POST['diretor']) ? $_POST['diretor'] : '';
+        $this->diretor = PDO::quote($requestDiretor); //quote() para escapar a sequencia de caracteres
+        return $this->diretor;
+    }
 
-			$this->arrData  = array(
-				'titulo'  => $this->titulo,
-				'diretor' => $this->diretor,
-				'sinopse' => $this->sinopse,
-			);
-
-			return $this->arrData;
-		}
-	}
+    public function getSinopse()
+    {
+        $requestSinopse = isset($_POST['sinopse']) ? $_POST['sinopse'] : '';
+        $this->sinopse = PDO::quote($requestSinopse); //quote() para escapar a sequencia de caracteres
+        return $this->sinopse;
+    }
+}
