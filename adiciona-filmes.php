@@ -1,31 +1,25 @@
-<?
+<?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use app\controllers\RequestData;
-use app\controllers\InsertData;
+use Irwing\Movies\controllers\RequestData;
+use Irwing\Movies\controllers\InsertData;
 
-function requisitarDados(){
-	$objRequest = new \app\controllers\RequestData();
-	return $objRequest->getRequest();	
+function insertData()
+{
+	$objRequest = new RequestData();
+    $insert = new InsertData();
+    $insert->insert($objRequest->getTitulo(), $objRequest->getDiretor(), $objRequest->getSinopse());
 }
 
-function insertData(){
-	requisitarDados();
-	$insert = new \app\controllers\InsertData();
-	$dados = $requisitarDados();
-	$insert->insert(requisitarDados()['titulo'], requisitarDados()['diretor'], requisitarDados()['sinopse']);
-}
+function twigAdcionaFilmes()
+{
+    $viewFolder = __DIR__ . "/views";
+    $loader = new Twig_Loader_Filesystem($viewFolder);
 
-function twigAdcionaFilmes(){
-	$viewFolder = __DIR__ . "/views";
-	$loader = new Twig_Loader_Filesystem($viewFolder);
+    $twig = new Twig_Environment($loader);
 
-	$twig = new Twig_Environment($loader);
-
-	echo $twig->render('adiciona-filmes.html');
+    echo $twig->render('adiciona-filmes.html');
 }
 
 insertData();
 twigAdcionaFilmes();
-
-
