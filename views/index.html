@@ -9,7 +9,7 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-inverse navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="index.php">Filmes</a>
@@ -20,26 +20,27 @@
 	  </div>
 	</nav>
 	<div class="container">
-		<h1 style="margin-top:50px;"><a href="adiciona-filmes.php" title="">TESTE DE CONEXÃO COM O BANCO DE DADOS</a></h1>
-		<!-- <h2>Lista de filmes</h2>
+		<h2>Lista de Filmes</h2>        
 		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Filme</th>
-					<th>Categoria</th>
-					<th>Duração</th>
-					<th>Censura</th>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-					<tr>
-
-					</tr>
-			</tbody>
-		</table> -->
-
+		<thead>
+		  <tr>
+		    <th>Titulo</th>
+		    <th>Diretor</th>
+		    <th>Ator/Atriz Principal</th>
+		  </tr>
+		</thead>
+		<tbody>
+			{% for i in postsMovies %}
+		    <tr>
+			    <td>{{i.Title}}</td>
+			    <td>{{i.Director}}</td>
+			    <td>{{i.Actor}}</td>
+			    <td><a href="#" title="">Alterar</a></td>
+			    <td><a href="#" title="">Excluir</a></td>
+		  	</tr>
+		   {% endfor %}
+		</tbody>
+		</table>
 	</div>
 </body>
 </html>
