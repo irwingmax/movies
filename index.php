@@ -7,14 +7,9 @@ use Irwing\Movies\Controllers\SelectData;
 function showData()
 {
 	$objSelect = new SelectData();
-    $posts = $objSelect->getData();
+    $data = $objSelect->getData();
 
-    foreach ($posts as $post)
-    {
-    	$postsMovies[] = $post;
-    }
-
-    return $postsMovies;
+    return $data;
 }
 
 function twigIndex()
