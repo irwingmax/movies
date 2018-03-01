@@ -6,7 +6,7 @@ class RequestData
 {
     private $titulo;
     private $diretor;
-    private $sinopse;
+    private $ator;
     private $arrData;
 
     public function getTitulo()
@@ -23,10 +23,10 @@ class RequestData
         return $this->diretor;
     }
 
-    public function getSinopse()
+    public function getAtor()
     {
-        $requestSinopse = isset($_POST['sinopse']) ? $_POST['sinopse'] : '';
-        $this->sinopse = PDO::quote($requestSinopse); //quote() para escapar a sequencia de caracteres
-        return $this->sinopse;
+        $requestAtor = isset($_POST['ator']) ? $_POST['ator'] : '';
+        $this->ator = PDO::quote($requestator); //quote() para escapar a sequencia de caracteres
+        return $this->ator;
     }
 }
