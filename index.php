@@ -2,19 +2,29 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use Irwing\Movies\Controller\SelectData;
+use Irwing\Movies\Controllers\SelectData;
 
-function searchData()
+function showData()
 {
 	$objSelect = new SelectData();
-	$objSelect->getData();
+    $posts = $objSelect->getData();
 
-	foreach(new TableRows(new RecursiveArrayIterator()))
+    foreach ($posts as $post)
+    {
+    	$postsMovies[] = $post;
+    }
+
+    return $postsMovies;
 }
 
-$viewFolder = __DIR__ . "/views";
-$loader = new Twig_Loader_Filesystem($viewFolder);
+function twigIndex()
+{
+    $viewFolder = __DIR__ . "/views";
+    $loader = new Twig_Loader_Filesystem($viewFolder);
+    $twig = new Twig_Environment($loader);
 
-$twig = new Twig_Environment($loader);
+    echo $twig->render('index.html', array('postsMovies'=>showData()));
 
-echo $twig->render('index.html');
+}
+
+twigIndex();
