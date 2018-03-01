@@ -8,7 +8,7 @@ function insertData()
 {
 	$objRequest = new RequestData();
     $insert = new InsertData();
-    $insert->insert($objRequest->getTitulo(), $objRequest->getDiretor(), $objRequest->getSinopse());
+    $insert->insert($objRequest->getTitulo(), $objRequest->getDiretor(), $objRequest->getAtor());
 }
 
 function twigAdcionaFilmes()
