@@ -2,7 +2,6 @@
 
 namespace Irwing\Movies\Models;
 
-
 class UpdateData
 {
 
