@@ -2,31 +2,44 @@
 namespace Irwing\Movies\controllers;
 
 use PDO;
+
 class RequestData
 {
     private $titulo;
     private $diretor;
     private $ator;
-    private $arrData;
+    private $movieID;
+    private $movieIDUpdate;
 
-    public function getTitulo()
+    public function generateID()
     {
-        $requestTitulo = isset($_POST['titulo']) ? $_POST['titulo'] : '';
-        $this->titulo = PDO::quote($requestTitulo); //quote() para escapar a sequencia de caracteres
-        return $this->arrData;
+        $n = mt_rand();
+        $this->movieID = hash('md5', "$n");
+
+        return $this->movieID;
     }
 
-    public function getDiretor()
+    public function obtainTitulo()
     {
-        $requestDiretor = isset($_POST['diretor']) ? $_POST['diretor'] : '';
-        $this->diretor = PDO::quote($requestDiretor); //quote() para escapar a sequencia de caracteres
+        $this->titulo = isset($_POST['titulo']) ? $_POST['titulo'] : '';
+        return $this->titulo;
+    }
+
+    public function obtainDiretor()
+    {
+        $this->diretor = isset($_POST['diretor']) ? $_POST['diretor'] : '';
         return $this->diretor;
     }
 
-    public function getAtor()
+    public function obtainAtor()
     {
-        $requestAtor = isset($_POST['ator']) ? $_POST['ator'] : '';
-        $this->ator = PDO::quote($requestator); //quote() para escapar a sequencia de caracteres
+        $this->ator = isset($_POST['ator']) ? $_POST['ator'] : '';
         return $this->ator;
+    }
+
+    public function obtainMovieId()
+    {
+        $this->movieIDUpdate = isset($_POST['movieID']) ? $_POST['movieID'] : '';
+        return $this->movieIDUpdate;
     }
 }

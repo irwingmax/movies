@@ -19,10 +19,17 @@ class Connect
         $this->pwd    =  "irwing";
         $this->dbname =  "db_movies";
 
-        try
-        {
-            $this->connection = new \PDO("mysql:host=$this->server;dbname=$this->dbname", $this->user, $this->pwd);
-            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        try {
+            $this->connection = new \PDO(
+                "mysql:host=$this->server;
+                dbname=$this->dbname",
+                $this->user,
+                $this->pwd
+            );
+            $this->connection->setAttribute(
+                PDO::ATTR_ERRMODE,
+                PDO::ERRMODE_EXCEPTION
+            );
         } catch (PDOException $e) {
             echo "Não Conectado: " . $e->getMessage();
         }

@@ -1,7 +1,6 @@
 <?php
-    namespace Irwing\Movies\Controllers;
+    namespace Irwing\Movies\Models;
 
-    use Irwing\Movies\Models\Connect;
     use PDO;
 
 class InsertData
@@ -10,7 +9,8 @@ class InsertData
     {
         $objConnect = new Connect();
         $objConnect->connectar();
-        $insertQuery = "INSERT INTO tb_movies (movieID, title, director, actor) VALUES (:movieID, :title, :director, :actor)";
+        $insertQuery = "INSERT INTO tb_movies (movieID, title, director, actor) 
+                        VALUES (:movieID, :title, :director, :actor)";
         $insertStmt = $objConnect->getConnection()->prepare($insertQuery);
         $insertStmt->bindParam(':movieID', $id, PDO::PARAM_STR, 99);
         $insertStmt->bindParam(':title', $titulo, PDO::PARAM_STR, 10);
