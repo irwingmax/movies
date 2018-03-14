@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Página Inicial</title>
+	<meta charset="utf-8">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/css" href="views/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+  		<div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="index.php">Filmes</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li><a href="adiciona-filmes.php">Adicionar novos filmes</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	<div class="container">
+		<form class="box-form" action="interacao-update.php" method="POST">
+			{% for i in postsMoviesById %}
+            <div class="form-group">
+                <input type="hidden" class="form-control" id="movieID" name="movieID" value="{{i.movieID}}">
+            </div>
+		  <div class="form-group">
+		    <label for="titulo">Título:</label>
+		    <input type="text" class="form-control" id="titulo" name="titulo" value="{{i.Title}}">
+		  </div>
+		  <div class="form-group">
+		    <label for="diretor">Diretor:</label>
+		    <input type="text" class="form-control" id="diretor" name="diretor" value="{{i.Director}}">
+		  </div>
+		  <div class="form-group">
+		    <label for="ator">Ator/Atriz Principal:</label>
+		    <input type="text" class="form-control" id="ator" name="ator" value="{{i.Actor}}">
+		  </div>
+			{% endfor %}
+		  <button type="submit" class="btn btn-default">Atualizar</button>
+		</form>
+	</div>
+</body>
+</html>
