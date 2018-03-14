@@ -21,18 +21,18 @@
 	  </div>
 	</nav>
 	<div class="container">
-		<form class="box-form" action="adiciona-filmes.php" method="POST">
+		<form class="box-form" action="interacao.php" method="POST">
 		  <div class="form-group">
 		    <label for="titulo">Título:</label>
-		    <input type="text" class="form-control" id="titulo" name="titulo">
+		    <input type="text" class="form-control" id="titulo" name="titulo" maxlength="10">
 		  </div>
 		  <div class="form-group">
 		    <label for="diretor">Diretor:</label>
-		    <input type="text" class="form-control" id="diretor" name="diretor">
+		    <input type="text" class="form-control" id="diretor" name="diretor" maxlength="10">
 		  </div>
 		  <div class="form-group">
 		    <label for="ator">Ator/Atriz Principal:</label>
-		    <input type="text" class="form-control" id="ator" name="ator">
+		    <input type="text" class="form-control" id="ator" name="ator" maxlength="10">
 		  </div>
 		  <button type="submit" class="btn btn-default">Cadastrar</button>
 		</form>
