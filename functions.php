@@ -7,6 +7,10 @@ use Irwing\Movies\Models\InsertData;
 use Irwing\Movies\Models\DeleteData;
 use Irwing\Movies\Models\SelectData;
 use Irwing\Movies\Models\UpdateData;
+use Core\Router;
+
+
+
 
 function insertData()
 {
@@ -65,7 +69,7 @@ function showDataForUpdate(){
 //TWIG FUNCTIONS
 function twigIndex()
 {
-    $viewFolder = __DIR__ . "/views";
+    $viewFolder = __DIR__ . "/app/views";
     $loader = new Twig_Loader_Filesystem($viewFolder);
     $twig = new Twig_Environment($loader);
 
@@ -74,7 +78,7 @@ function twigIndex()
 
 function twigAdcionaFilmes()
 {
-    $viewFolder = __DIR__ . "/views";
+    $viewFolder = __DIR__ . "/app/views";
     $loader = new Twig_Loader_Filesystem($viewFolder);
     $twig = new Twig_Environment($loader);
 
@@ -83,9 +87,32 @@ function twigAdcionaFilmes()
 
 function twigAtualizaFilmes()
 {
-    $viewFolder = __DIR__ . "/views";
+    $viewFolder = __DIR__ . "/app/views";
     $loader = new Twig_Loader_Filesystem($viewFolder);
     $twig = new Twig_Environment($loader);
 
     echo $twig->render('atualiza-filmes.html', array('postsMoviesById'=>showDataForUpdate()));
+}
+
+function routear()
+{
+    if (isset($_GET['uri'])){
+        $rota = $_GET['uri'];
+
+        $permissao = array('adiciona-filmes', 'atualiza-filmes');
+
+        if (substr_count($rota, '/') > 0){
+            $rota = explode('/', $rota);
+            $pagina = (file_exists($rota[0].'.php') && in_array($rota[0], $permissao)) ? $rota[0] : 'erro';
+            echo "teste1";
+
+        }else{
+            $pagina = (file_exists($rota.'.php') && in_array($rota, $permissao)) ? $rota : 'erro';
+            echo "teste2";
+        }
+
+        header("Location: http://localhost:9000/movies/".$pagina.".php");
+    }
+
+
 }
