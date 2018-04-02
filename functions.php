@@ -10,8 +10,6 @@ use Irwing\Movies\Models\UpdateData;
 use Core\Router;
 
 
-
-
 function insertData()
 {
     try {
@@ -50,7 +48,7 @@ function deleteData()
 {
     $deleteObject = new DeleteData();
     $deleteObject->delete();
-    header("Location: http://localhost:9000/movies");
+    header("Location: http://localhost:9000/movies/");
 }
 
 function showData()
@@ -74,6 +72,7 @@ function twigIndex()
     $twig = new Twig_Environment($loader);
 
     echo $twig->render('index.html', array('postsMovies'=>showData()));
+
 }
 
 function twigAdcionaFilmes()
@@ -94,25 +93,24 @@ function twigAtualizaFilmes()
     echo $twig->render('atualiza-filmes.html', array('postsMoviesById'=>showDataForUpdate()));
 }
 
+function twigErrorPage()
+{
+    $viewFolder = __DIR__ . "/app/views";
+    $loader = new Twig_Loader_Filesystem($viewFolder);
+    $twig = new Twig_Environment($loader);
+
+    echo $twig->render('error.html');
+}
+
 function routear()
 {
-    if (isset($_GET['uri'])){
-        $rota = $_GET['uri'];
+    $nova_rota = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $nova_rota = explode ('/', $nova_rota);
 
-        $permissao = array('adiciona-filmes', 'atualiza-filmes');
+    $permissao = array('', 'adiciona-filmes', 'atualiza-filmes', 'interacao', 'interacao-delete', 'interacao-update', 'index.php');
 
-        if (substr_count($rota, '/') > 0){
-            $rota = explode('/', $rota);
-            $pagina = (file_exists($rota[0].'.php') && in_array($rota[0], $permissao)) ? $rota[0] : 'erro';
-            echo "teste1";
-
-        }else{
-            $pagina = (file_exists($rota.'.php') && in_array($rota, $permissao)) ? $rota : 'erro';
-            echo "teste2";
-        }
-
-        header("Location: http://localhost:9000/movies/".$pagina.".php");
+    if(!in_array($nova_rota[2], $permissao)){
+        header("Location: http://localhost:9000/movies/error.php");
     }
-
 
 }
