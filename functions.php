@@ -21,9 +21,9 @@ function insertData()
             $requestObject->obtainDiretor(),
             $requestObject->obtainAtor()
         );
-        header("Location: http://localhost:9000/movies/");
+        header("Location: http://localhost/movies/");
     } catch (PDOException $e) {
-        header("Location: http://localhost:9000/movies/adiciona-filmes.php?r=error");
+        header("Location: http://localhost/movies/adiciona-filmes.php?r=error");
     }
 }
 
@@ -38,9 +38,9 @@ function updateData()
             $requestObject->obtainDiretor(),
             $requestObject->obtainAtor()
         );
-        header("Location: http://localhost:9000/movies/");
+        header("Location: http://localhost/movies/");
     } catch (PDOException $e) {
-        header("Location: http://localhost:9000/movies/atualiza-filmes.php?r=error");
+        header("Location: http://localhost/movies/atualiza-filmes.php?r=error");
     }
 }
 
@@ -48,7 +48,7 @@ function deleteData()
 {
     $deleteObject = new DeleteData();
     $deleteObject->delete();
-    header("Location: http://localhost:9000/movies/");
+    header("Location: http://localhost/movies/");
 }
 
 function showData()
@@ -110,7 +110,7 @@ function routear()
     $permissao = array('', 'adiciona-filmes', 'atualiza-filmes', 'interacao', 'interacao-delete', 'interacao-update', 'index.php');
 
     if(!in_array($nova_rota[2], $permissao)){
-        header("Location: http://localhost:9000/movies/error.php");
+        header("Location: http://localhost/movies/error.php");
     }
 
 }
