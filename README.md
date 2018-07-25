@@ -8,7 +8,6 @@ Esse projeto tem como objetivo aprender e manter boas práticas de programação
 - Algum SGBD (Sistema de Gerenciamento de Banco de Dados).
 
 ### Visualizando a aplicação
-
 - Clone a aplicação via HTTPS:
 ```
 git clone --recursive https://github.com/irwing-max/movies.git
@@ -24,10 +23,5 @@ git clone --recursive git@github.com:irwing-max/movies.git
 ```
 > php -S localhost:8000
 ```
-
 - Abra o navegador e digite **localhost:8000**.
-
-##Contribuição
-
-Toda sugestão de melhoria é bem vinda. Principalmente para alguém como eu que tem muito o que aprender.
 
