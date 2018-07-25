@@ -9,6 +9,7 @@ use Irwing\Movies\Models\SelectData;
 use Irwing\Movies\Models\UpdateData;
 use Core\Router;
 
+const MOVIES_URL = '192.168.33.11';
 
 function insertData()
 {
@@ -21,9 +22,9 @@ function insertData()
             $requestObject->obtainDiretor(),
             $requestObject->obtainAtor()
         );
-        header("Location: http://localhost/movies/");
+        header("Location: http://" . MOVIES_URL . "");
     } catch (PDOException $e) {
-        header("Location: http://localhost/movies/adiciona-filmes.php?r=error");
+        header("Location: http://" . MOVIES_URL . "/adiciona-filmes.php?r=error");
     }
 }
 
@@ -38,9 +39,9 @@ function updateData()
             $requestObject->obtainDiretor(),
             $requestObject->obtainAtor()
         );
-        header("Location: http://localhost/movies/");
+        header("Location: http://" . MOVIES_URL . "");
     } catch (PDOException $e) {
-        header("Location: http://localhost/movies/atualiza-filmes.php?r=error");
+        header("Location: http://" . MOVIES_URL . "/atualiza-filmes.php?r=error");
     }
 }
 
@@ -48,7 +49,7 @@ function deleteData()
 {
     $deleteObject = new DeleteData();
     $deleteObject->delete();
-    header("Location: http://localhost/movies/");
+    header("Location: http://" . MOVIES_URL . "");
 }
 
 function showData()
@@ -110,7 +111,7 @@ function routear()
     $permissao = array('', 'adiciona-filmes', 'atualiza-filmes', 'interacao', 'interacao-delete', 'interacao-update', 'index.php');
 
     if(!in_array($nova_rota[2], $permissao)){
-        header("Location: http://localhost/movies/error.php");
+        header("Location: http://" . MOVIES_URL . "/error.php");
     }
 
 }

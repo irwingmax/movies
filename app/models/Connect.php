@@ -16,7 +16,7 @@ class Connect
     {
         $this->server =  "localhost";
         $this->user   =  "root";
-        $this->pwd    =  "";
+        $this->pwd    =  "irwing";
         $this->dbname =  "db_movies";
 
         try {
