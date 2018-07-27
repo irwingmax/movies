@@ -38,7 +38,6 @@ class SelectData
 
                 return $resultSelectById;
             }
-
         } catch (PDOException $e) {
             header("Location: http://localhost:9000/movies?result=error");
         }

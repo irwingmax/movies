@@ -59,7 +59,8 @@ function showData()
 }
 
 
-function showDataForUpdate(){
+function showDataForUpdate()
+{
     $selectObjectById = new SelectData();
     return $selectObjectById->getDataById();
 }
@@ -73,7 +74,6 @@ function twigIndex()
     $twig = new Twig_Environment($loader);
 
     echo $twig->render('index.html', array('postsMovies'=>showData()));
-
 }
 
 function twigAdcionaFilmes()
@@ -106,12 +106,17 @@ function twigErrorPage()
 function routear()
 {
     $nova_rota = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-    $nova_rota = explode ('/', $nova_rota);
+    $nova_rota = explode('/', $nova_rota);
 
-    $permissao = array('', 'adiciona-filmes', 'atualiza-filmes', 'interacao', 'interacao-delete', 'interacao-update', 'index.php');
+    $permissao = array('',
+                        'adiciona-filmes',
+                        'atualiza-filmes',
+                        'interacao',
+                        'interacao-delete',
+                        'interacao-update',
+                        'index.php');
 
-    if(!in_array($nova_rota[2], $permissao)){
+    if (!in_array($nova_rota[2], $permissao)) {
         header("Location: http://" . MOVIES_URL . "/error.php");
     }
-
 }
