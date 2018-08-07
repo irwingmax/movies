@@ -1,6 +1,8 @@
 <?php
-require __DIR__ . '/functions.php';
+require __DIR__ . '/vendor/autoload.php';
 
-routear();
-twigIndex();
+use Irwing\Movies\Twig\TemplateRendering;
+
+$objectTwig = new TemplateRendering();
+$objectTwig->rendering('index.html');
 
