@@ -28,7 +28,7 @@ class ComposerStaticInit929de86655e325f99c366f7fcc75246a
         ),
         'Irwing\\Movies\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/app',
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

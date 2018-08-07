@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
-    'Irwing\\Movies\\' => array($baseDir . '/app'),
+    'Irwing\\Movies\\' => array($baseDir . '/src'),
 );
