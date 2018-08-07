@@ -7,6 +7,7 @@ use Irwing\Movies\Models\InsertData;
 use Irwing\Movies\Models\DeleteData;
 use Irwing\Movies\Models\SelectData;
 use Irwing\Movies\Models\UpdateData;
+use Irwing\Movies\Models\Connect;
 use Core\Router;
 
 const MOVIES_URL = '192.168.33.11';
@@ -69,7 +70,7 @@ function showDataForUpdate()
 //TWIG FUNCTIONS
 function twigIndex()
 {
-    $viewFolder = __DIR__ . "/app/views";
+    $viewFolder = __DIR__ . "/templates";
     $loader = new Twig_Loader_Filesystem($viewFolder);
     $twig = new Twig_Environment($loader);
 
@@ -78,7 +79,7 @@ function twigIndex()
 
 function twigAdcionaFilmes()
 {
-    $viewFolder = __DIR__ . "/app/views";
+    $viewFolder = __DIR__ . "/templates";
     $loader = new Twig_Loader_Filesystem($viewFolder);
     $twig = new Twig_Environment($loader);
 
@@ -87,7 +88,7 @@ function twigAdcionaFilmes()
 
 function twigAtualizaFilmes()
 {
-    $viewFolder = __DIR__ . "/app/views";
+    $viewFolder = __DIR__ . "/templates";
     $loader = new Twig_Loader_Filesystem($viewFolder);
     $twig = new Twig_Environment($loader);
 
@@ -96,7 +97,7 @@ function twigAtualizaFilmes()
 
 function twigErrorPage()
 {
-    $viewFolder = __DIR__ . "/app/views";
+    $viewFolder = __DIR__ . "/templates";
     $loader = new Twig_Loader_Filesystem($viewFolder);
     $twig = new Twig_Environment($loader);
 
