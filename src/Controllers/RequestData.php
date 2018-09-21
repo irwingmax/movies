@@ -1,7 +1,5 @@
 <?php
-namespace Irwing\Movies\controllers;
-
-use PDO;
+namespace Irwing\Movies\Controllers;
 
 class RequestData
 {
