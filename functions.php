@@ -1,13 +1,6 @@
 <?php
-
 require __DIR__ . '/vendor/autoload.php';
 
-use Irwing\Movies\controllers\RequestData;
-use Irwing\Movies\Models\InsertData;
-use Irwing\Movies\Models\DeleteData;
-use Irwing\Movies\Models\SelectData;
-use Irwing\Movies\Models\UpdateData;
-use Irwing\Movies\Models\Connect;
 use Core\Router;
 
 const MOVIES_URL = '192.168.33.11';
@@ -15,8 +8,8 @@ const MOVIES_URL = '192.168.33.11';
 function insertData()
 {
     try {
-        $requestObject = new RequestData();
-        $insertObject = new InsertData();
+        $requestObject = new \Irwing\Movies\Controllers\RequestData();
+        $insertObject = new \Irwing\Movies\Models\InsertData();
         $insertObject->insert(
             $requestObject->generateID(),
             $requestObject->obtainTitulo(),
@@ -32,8 +25,8 @@ function insertData()
 function updateData()
 {
     try {
-        $requestObject = new RequestData();
-        $updateObject = new UpdateData();
+        $requestObject = new \Irwing\Movies\Controllers\RequestData();
+        $updateObject = new \Irwing\Movies\Models\UpdateData();
         $updateObject->update(
             $requestObject->obtainMovieId(),
             $requestObject->obtainTitulo(),
@@ -48,21 +41,21 @@ function updateData()
 
 function deleteData()
 {
-    $deleteObject = new DeleteData();
+    $deleteObject = new \Irwing\Movies\Models\DeleteData();
     $deleteObject->delete();
     header("Location: http://" . MOVIES_URL . "");
 }
 
 function showData()
 {
-    $selectObject = new SelectData();
+    $selectObject = new \Irwing\Movies\Models\SelectData();
     return $selectObject->getData();
 }
 
 
 function showDataForUpdate()
 {
-    $selectObjectById = new SelectData();
+    $selectObjectById = new \Irwing\Movies\Models\SelectData();
     return $selectObjectById->getDataById();
 }
 
