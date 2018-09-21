@@ -1,9 +1,10 @@
+
 <?php
 echo 'hi';
-echo 'hello';
-
-if ($something) {
-
+echo 'hello';   
+    
+if ($something) {  
+    
 }
 
 
@@ -13,20 +14,23 @@ function myFunction()
 
     echo 'code here';
 
+
     // Hello.
 
     /*
         HI
     */
 
+
 }
 
 /**
- * Doc comment with a white space at the end.
+ * Doc comment with a white space at the end. 
  */
 function myFunction2()
 {
     echo 'code here';
+
 
     echo 'code here';
 
@@ -42,8 +46,11 @@ function myFunction2()
     
 }
 
+// Ordinary comment with extra whitespace at the end    
+
 // phpcs:set Squiz.WhiteSpace.SuperfluousWhitespace ignoreBlankLines false
 
 // Уберём из системных свойств все кроме информации об услугах
 
 ?>
+

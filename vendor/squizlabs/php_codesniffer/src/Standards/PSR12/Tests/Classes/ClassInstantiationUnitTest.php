@@ -1,17 +1,17 @@
 <?php
 /**
- * Unit test class for the DisallowObEndFlush sniff.
+ * Unit test class for the ClassInstantiation sniff.
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  */
 
-namespace PHP_CodeSniffer\Standards\Squiz\Tests\PHP;
+namespace PHP_CodeSniffer\Standards\PSR12\Tests\Classes;
 
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
-class DisallowObEndFlushUnitTest extends AbstractSniffUnitTest
+class ClassInstantiationUnitTest extends AbstractSniffUnitTest
 {
 
 
@@ -25,7 +25,23 @@ class DisallowObEndFlushUnitTest extends AbstractSniffUnitTest
      */
     public function getErrorList()
     {
-        return [9 => 1];
+        return [
+            3  => 1,
+            4  => 1,
+            9  => 1,
+            11 => 1,
+            14 => 1,
+            16 => 1,
+            20 => 1,
+            21 => 1,
+            22 => 1,
+            24 => 1,
+            25 => 1,
+            30 => 1,
+            32 => 1,
+            33 => 1,
+            34 => 1,
+        ];
 
     }//end getErrorList()
 
