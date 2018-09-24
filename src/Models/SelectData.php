@@ -4,7 +4,7 @@ namespace Irwing\Movies\Models;
 
 use PDO;
 
-class SelectData
+class SelectData implements \Irwing\Movies\Models\Interfaces\SelectDataInterface
 {
     public function getData()
     {

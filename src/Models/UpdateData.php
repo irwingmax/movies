@@ -2,7 +2,7 @@
 
 namespace Irwing\Movies\Models;
 
-class UpdateData
+class UpdateData implements \Irwing\Movies\Models\Interfaces\UpdateDataInterface
 {
     public function update($id, $newTitle, $newDirector, $newActor)
     {

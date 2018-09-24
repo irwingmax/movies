@@ -1,7 +1,7 @@
 <?php
 namespace Irwing\Movies\Controllers;
 
-class RequestData
+class RequestData implements \Irwing\Movies\Controllers\Interfaces\RequestDataInterface
 {
     private $titulo;
     private $diretor;

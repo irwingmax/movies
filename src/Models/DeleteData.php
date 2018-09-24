@@ -2,7 +2,7 @@
 
 namespace Irwing\Movies\Models;
 
-class DeleteData
+class DeleteData implements \Irwing\Movies\Models\Interfaces\DeleteDataInterface
 {
     private $movieID;
 

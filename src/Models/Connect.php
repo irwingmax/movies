@@ -3,7 +3,7 @@ namespace Irwing\Movies\Models;
 
 use PDO;
 
-class Connect
+class Connect implements \Irwing\Movies\Models\Interfaces\ConnectInterface
 {
 
     private $servername;

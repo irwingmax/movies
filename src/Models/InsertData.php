@@ -3,7 +3,7 @@
 
     use PDO;
 
-class InsertData
+class InsertData implements \Irwing\Movies\Models\Interfaces\InsertDataInterface
 {
     public function insert($id, $titulo, $diretor, $ator)
     {
